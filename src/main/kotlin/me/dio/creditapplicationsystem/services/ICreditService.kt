@@ -1,6 +1,6 @@
 package me.dio.creditapplicationsystem.services
 
-import me.dio.creditapplicationsystem.entity.Credit
+import me.dio.creditapplicationsystem.entities.Credit
 import java.util.UUID
 
 interface ICreditService {

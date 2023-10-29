@@ -1,6 +1,6 @@
 package me.dio.creditapplicationsystem.services
 
-import me.dio.creditapplicationsystem.entity.Customer
+import me.dio.creditapplicationsystem.entities.Customer
 
 interface ICustomerService {
 

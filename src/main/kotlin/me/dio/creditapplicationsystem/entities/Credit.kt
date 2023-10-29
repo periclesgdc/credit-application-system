@@ -1,4 +1,4 @@
-package me.dio.creditapplicationsystem.entity
+package me.dio.creditapplicationsystem.entities
 
 import me.dio.creditapplicationsystem.enums.Status
 import jakarta.persistence.*
