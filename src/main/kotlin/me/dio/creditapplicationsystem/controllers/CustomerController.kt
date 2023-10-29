@@ -1,6 +1,7 @@
 package me.dio.creditapplicationsystem.controllers
 
 import com.electronwill.nightconfig.core.conversion.Path
+import jakarta.validation.Valid
 import me.dio.creditapplicationsystem.dto.CustomerDto
 import me.dio.creditapplicationsystem.dto.CustomerUpdateDto
 import me.dio.creditapplicationsystem.dto.CustomerView
@@ -25,7 +26,7 @@ class CustomerController(
 ) {
 
   @PostMapping
-  fun save(@RequestBody customerDto: CustomerDto): ResponseEntity<String> {
+  fun save(@RequestBody @Valid customerDto: CustomerDto): ResponseEntity<String> {
     val saved = this.customerService.save(customerDto.toEntity())
 
     return ResponseEntity.status(HttpStatus.CREATED).body("Customer ${saved.email} saved!")
@@ -42,7 +43,7 @@ class CustomerController(
   fun delete(@PathVariable id: Long) = this.customerService.delete(id)
 
   @PatchMapping
-  fun update(@RequestParam(value = "customerId") id: Long, @RequestBody customerUpdateDto: CustomerUpdateDto): ResponseEntity<CustomerView> {
+  fun update(@RequestParam(value = "customerId") id: Long, @RequestBody @Valid customerUpdateDto: CustomerUpdateDto): ResponseEntity<CustomerView> {
     val customer = this.customerService.findById(id)
     val customerToUpdate: Customer = customerUpdateDto.toEntity(customer)
     val updated = this.customerService.save(customerToUpdate)
